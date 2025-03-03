@@ -1,0 +1,29 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Test List Implementations
+      id: test-list-implementations
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Test List Implementations
+        setup-command: ''
+        command: mvn -B -ntp test
+        timeout: 10
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        TEST-LIST-IMPLEMENTATIONS_RESULTS: "${{steps.test-list-implementations.outputs.result}}"
+      with:
+        runners: test-list-implementations
