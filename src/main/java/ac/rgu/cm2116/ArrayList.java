@@ -12,7 +12,7 @@ public class ArrayList<T> extends SoCETList<T> {
     public boolean add(T e){
         int length = this.array.length;
         Object[] temp = new Object[length+1];
-        for(int i = 0; i > length-1; i++){
+        for(int i = 0; i < length-1; i++){
             temp[i] = this.array[i];
         }
         temp[length] = e;
@@ -22,7 +22,22 @@ public class ArrayList<T> extends SoCETList<T> {
 
     @Override
     public T remove(int index){
-        return null;
+        int length = this.array.length;
+        if(index < length){
+            @SuppressWarnings("unchecked")
+            T item = (T)this.array[index];
+            Object[] temp = new Object[length-1];
+            for(int i = 0; i < index-1;i++){
+                temp[i] = array[i];
+            }
+            for(int i = index+1; i<length-1;i++){
+                temp[i-1] = array[i];
+            }
+            array = temp;
+            return item;
+        }else{
+            return null;
+        }
     }
 
     @Override
@@ -32,7 +47,8 @@ public class ArrayList<T> extends SoCETList<T> {
 
     @Override
     public T get(int index){
-        return null;
+        T jim = (T)this.array[index];
+        return jim;
     }
 
     @Override
