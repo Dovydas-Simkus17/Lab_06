@@ -1,4 +1,4 @@
-package ac.rgu.cm2116;
+package Lab_06.src.main.java.ac.rgu.cm2116;
 
 public class LinkedList<T> extends SoCETList<T> {
 
