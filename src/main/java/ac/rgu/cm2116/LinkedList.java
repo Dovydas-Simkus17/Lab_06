@@ -1,4 +1,4 @@
-package Lab_06.src.main.java.ac.rgu.cm2116;
+package ac.rgu.cm2116;
 
 public class LinkedList<T> extends SoCETList<T> {
 
@@ -12,12 +12,40 @@ public class LinkedList<T> extends SoCETList<T> {
 
     @Override
     public boolean add(T e){
-        return false;
+        if(head == null){
+            head = new ListNode<T>(e);
+        }else{
+            ListNode<T> temp = head;
+            while(temp.next != null){
+                temp = temp.next;
+            }
+            temp.next = new ListNode<T>(e);
+        }
+        size++;
+        return true;
     }
 
     @Override
     public T remove(int index){
-        return null;
+        T value = null;
+        if(index < size){
+            if(index == 0){
+                value = head.value;
+                head = head.next;
+            }
+            else{
+                ListNode<T> temp = head;
+                int counter = 0;
+                while(counter < index - 1){
+                    temp = temp.next;
+                    counter++;
+                }
+                value = temp.next.value;
+                temp.next = temp.next.next;
+            }
+            size--;
+        }
+        return value;
     }
 
     @Override

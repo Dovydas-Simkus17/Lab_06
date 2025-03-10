@@ -1,1 +1,47 @@
+1.
+time => O(n)
+
+space => O(n)
+
+time can be O{1} if we add a size field that goes up and down when removing and adding elements to the ArrayList
+will still be O(n) if our empty ArrayList needs to be resized since we also need to have an empty ArrayList for it to work 
+
+2.
+time => O(n)
+We have to search through whole list and add all but the given index into a new array temp so the code will 
+go through awhole array
+space => O(n)
+We have to make a new array for the temp variable to store the new list
+
 3.a)
+remove(Object item):
+1. counter = 0
+2. found = false
+3. length = size of array
+4. for i = 0 to length - 1
+4.1 if array[i] == item
+4.1.1 found = true
+4.2 else
+4.2.1 counter++
+5. if found == true
+5.1 remove(counter)
+5.2 return true
+6. else
+6.1 return false
+
+
+4. time O(1)
+
+
+Linked list
+1.
+time => O(n)
+We have to go through the whole list to reach the end to then add in our value
+
+2.
+time => O(n)
+We have to go through the whole list to reach the index and then delter and replace it
+
+3.a)
+
+

@@ -1,4 +1,4 @@
-package Lab_06.src.test.java.ac.rgu.cm2116;
+package ac.rgu.cm2116;
 
 import static org.junit.Assert.assertTrue;
 
