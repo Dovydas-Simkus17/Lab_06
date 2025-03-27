@@ -50,27 +50,74 @@ public class LinkedList<T> extends SoCETList<T> {
 
     @Override
     public boolean remove(Object e){
-        return false;
+        int counter = 0;
+        boolean found = false;
+        int length = this.size;
+        ListNode<T> temp = head;
+
+        if(head == e){
+            found = true;
+        }
+        for(int i = 0; i <= length-1;i++){
+            if(temp == e || found == true){
+                found = true;
+                break;
+            }else{
+                counter++;
+                temp = temp.next;
+            }
+        }
+        if(found){
+            remove(counter);
+            return true;
+        }else{
+            return false;
+        }
     }
 
     @Override
     public T get(int index){
+        if(index < size){
+            if(index == 0){
+                return head.value;
+            }
+            else{
+                ListNode<T> temp = head;
+                int counter = 0;
+                while(counter < index){
+                    temp = temp.next;
+                    counter++;
+                }
+                return temp.value;
+            }
+        }
         return null;
+
     }
 
     @Override
     public int size(){
-        return 0;
+        return this.size;
     }
 
     @Override
     public boolean isEmpty(){
-        return true;
+        if(head == null){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     @Override
     public void clear(){
-        
+        while(head != null){
+            if(head.next != null){
+                head = head.next;
+            }else{
+                head = null;
+            }
+        }
     }
 
     /** Don't edit below this line - here be dragons :) */
