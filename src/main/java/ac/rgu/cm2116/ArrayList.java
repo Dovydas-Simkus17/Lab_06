@@ -40,7 +40,7 @@ public class ArrayList<T> extends SoCETList<T> {
 
     @Override
     public T remove(int index){
-        int length = this.array.length;
+        //int length = this.array.length;
         // if(index < length){
         //     @SuppressWarnings("unchecked")
         //     T item = (T)this.array[index];
@@ -97,6 +97,7 @@ public class ArrayList<T> extends SoCETList<T> {
         if(index > this.array.length || index < 0){
             return null;
         }else{
+            @SuppressWarnings("unchecked")
             T jim = (T)this.array[index];
             return jim;
         }
